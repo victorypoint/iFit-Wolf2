@@ -1,4 +1,3 @@
-
 'iFit-Wolf2 - get and set speed and incline on treadmill via ADB
 
 'to debug - enable wscript.echo and run by cscript in command line
