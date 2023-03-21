@@ -35,9 +35,9 @@ ADB stands for Android Debug Bridge used by developers to connect their developm
   - Speed slider - bottom - 807, top- 271
   - Y = 271 - 807 = 536 pixels
   - For speed range of 1.0 - 19.3 - use 19.0 as upper and ignore additional 0.3 = 18
-  - 536 pixels / 18 speed range = 29.78 pixels / 1 speed - perfect!
+  - 536 pixels / 18 speed range = 29.78 pixels / 1 speed
   - For incline range of -3 - 15 = 18
-  - 536 pixels / 18 incline range = 29.78 pixels / 1 incline - had to correct to 29.9
+  - 536 pixels / 18 incline range = 29.78 pixels / 1 incline
        
 - Document equations to calculate speed and incline slider vertical positions
    
