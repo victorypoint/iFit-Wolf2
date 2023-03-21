@@ -1,4 +1,4 @@
-:: iFi-Wolf2
+:: iFit-Wolf2
 :: Author: Al Udell
 :: Revised: March 21, 2023
 
