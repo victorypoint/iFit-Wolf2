@@ -21,36 +21,35 @@ ADB stands for Android Debug Bridge used by developers to connect their developm
 
 Methodology for determining values for the on-screen speed and incline control calculations:
 
-			- NordicTrack C2950 tablet screen is 1920 x 1080 (1080p HD)
+- NordicTrack C2950 tablet screen is 1920 x 1080 (1080p HD)
      
-			- Get distances and dimensions in pixels from tablet screenshot showing manual workout with onscreen controls
-				- 1845  - x pixel position of middle of speed slider
-				- 75 - x pixel position of middle of incline slider
-				- 812 - y pixel position of bottom of sliders - this is anchor for Y pixel calculations
-				- 29.78 - y distance between speed slider boxes
-				- 29.9 - y distance between incline slider boxes
+  - Get distances and dimensions in pixels from tablet screenshot showing manual workout with onscreen controls
+    - 1845  - x pixel position of middle of speed slider
+    - 75 - x pixel position of middle of incline slider
+    - 812 - y pixel position of bottom of sliders - this is anchor for Y pixel calculations
+    - 29.78 - y distance between speed slider boxes
+    - 29.9 - y distance between incline slider boxes
        
-			- Get coordinates from screenshot in Photoshop
-				- Incline slider - bottom - 807,  top - 271
-				- Speed slider - bottom - 807, top- 271
-				- Y = 271 - 807 = 536 pixels
-				- For speed range of 1.0 - 19.3 - use 19.0 as upper and ignore additional 0.3 = 18
-				- 536 pixels / 18 speed range = 29.78 pixels / 1 speed - perfect!
-				- For incline range of -3 - 15 = 18
-				- 536 pixels / 18 incline range = 29.78 pixels / 1 incline - had to correct to 29.9
+  - Get coordinates from screenshot in Photoshop
+    - Incline slider - bottom - 807,  top - 271
+    - Speed slider - bottom - 807, top- 271
+    - Y = 271 - 807 = 536 pixels
+    - For speed range of 1.0 - 19.3 - use 19.0 as upper and ignore additional 0.3 = 18
+    - 536 pixels / 18 speed range = 29.78 pixels / 1 speed - perfect!
+    - For incline range of -3 - 15 = 18
+    - 536 pixels / 18 incline range = 29.78 pixels / 1 incline - had to correct to 29.9
        
-		- Document equations to calculate speed and incline slider vertical positions
+  - Document equations to calculate speed and incline slider vertical positions
    
-			- Speed slider
-				- Speed scale factor - (BottomY - TopY) / speed range = 536 / 18 = 29.78
-				- Step 1: get speed slider position from current speed - SpeedY = BottomY - round((current speed - 1) * 29.78)
-				- Step 2: set new slider position from new speed - SpeedY2 = speedY - round((newspeed - current speed) * 29.78)
-				- Round current and target speeds to 1 decimal 
-				- The swipe is then - Input swipe 1845 speedY 1845 speedY2
+    - Speed slider
+      - Speed scale factor - (BottomY - TopY) / speed range = 536 / 18 = 29.78
+      - Step 1: get speed slider position from current speed - SpeedY = BottomY - round((current speed - 1) * 29.78)
+      - Step 2: set new slider position from new speed - SpeedY2 = speedY - round((newspeed - current speed) * 29.78)
+      - Round current and target speeds to 1 decimal 
+      - The swipe is then - Input swipe 1845 speedY 1845 speedY2
        
-			- Incline slider
-				- Inclination scale factor - (BottomY - TopY) / incline range = 536 / 18 = 29.78
-					- Had to correct to 29.9 - changes top to 269
-					- 538 / 18 = 29.8889 
-				- Equations are same for incline swipe except using current and new incline values, use 75 instead of 1845, and use 29.9 instead of 29.78
-
+    - Incline slider
+      - Inclination scale factor - (BottomY - TopY) / incline range = 536 / 18 = 29.78
+      - Had to correct to 29.9 - changes top to 269
+      - 538 / 18 = 29.8889 
+      - Equations are same for incline swipe except using current and new incline values, use 75 instead of 1845, and use 29.9 instead of 29.78
