@@ -10,16 +10,18 @@ Building on the previous iFit-Wolf Windows VBscript code which displays the real
 I've not included documentation here on how to configure the NT C2950 treadmill for ADB communication, but it involves accessing the machines “Privileged Mode”, turning on “Developer Options” in Android settings, and enabling “USB Debugging” mode. Accessing Privileged Mode is well documented on many websites, dependent on the treadmill model, and version of Android and iFit.
 
 Files included:
-- adb-connect.bat (commands to initiate an ADB connection with the treadmill – change the IP to that of the treadmill)
-- get-speed-incline.vbs (VBscript)
-- cscript_get-speed-incline.bat (commands to launch VBscript in CScript window)
-- Not included – ADB
+- adb-connect.bat (batch script to initiate an ADB connection with the treadmill – change the IP to that of the treadmill)
+- iwolf2.vbs (VBscript)
+- iwolf.bat (commands to launch VBscript in CScript window)
+- adb-screenshot.bat (batch script to take a screenshot of the treadmill screen)
+- onscreen-controls.png (example screenshot of NT C2950 screen with on-screen speed and incline controls)
+- adb.exe, AdbWinApi.dll, AdbWinUsbApi.dll, grep.exe, tail.exe (required support files)
 
 ADB stands for Android Debug Bridge used by developers to connect their development computer with an Android device via a USB cable (and over Wifi in this case). If you don't have Android SDK installed on your PC, ADB may not be recognized. It's recommended you download the latest version.
 
 Methodology for determining values for the on-screen speed and incline control calculations:
 
-			- Tablet screen is 1920 x 1080 (1080p HD)
+			- NordicTrack C2950 tablet screen is 1920 x 1080 (1080p HD)
      
 			- Get distances and dimensions in pixels from tablet screenshot showing manual workout with onscreen controls
 				- 1845  - x pixel position of middle of speed slider
