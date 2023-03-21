@@ -19,7 +19,7 @@ Files included:
 
 ADB stands for Android Debug Bridge used by developers to connect their development computer with an Android device via a USB cable (and over Wifi in this case). If you don't have Android SDK installed on your PC, ADB may not be recognized. It's recommended you download the latest version.
 
-Methodology for determining values for the on-screen speed and incline control calculations:
+### Methodology for determining values for the on-screen speed and incline control calculations:
 
 - NordicTrack C2950 tablet screen is 1920 x 1080 (1080p HD)
      
