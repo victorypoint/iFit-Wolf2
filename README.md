@@ -24,27 +24,27 @@ ADB stands for Android Debug Bridge used by developers to connect their developm
 - NordicTrack C2950 tablet screen is 1920 x 1080 (1080p HD)
      
 - Get distances and dimensions in pixels from tablet screenshot showing manual workout with onscreen controls
-  - 1845  - x pixel position of middle of speed slider
+  - 1845 - x pixel position of middle of speed slider
   - 75 - x pixel position of middle of incline slider
-  - 807 - y pixel position of bottom of sliders - this is anchor for Y pixel calculations
-  - Incline slider range - bottom - 807,  top - 271
-  - Speed slider range - bottom - 807, top- 271
-  - Y = 807 - 271 = 536 pixels
+  - 803 - y pixel position of bottom of sliders - this is anchor for Y pixel calculations
+  - Incline slider range - bottom - 803,  top - 248
+  - Speed slider range - bottom - 803, top - 248
+  - Y = 803 - 248 = 555 pixels
   - For speed range of 1.0 - 19.0 = 18
-  - 536 pixels / 18 speed range = 29.8 pixels / 1 speed
+  - 555 pixels / 18 speed range = 30.83 pixels / 1 speed
   - For incline range of -3 - 15 = 18
-  - 536 pixels / 18 incline range = 29.8 pixels / 1 incline
+  - 555 pixels / 18 incline range = 30.83 pixels / 1 incline
        
 - Document equations to calculate speed and incline slider vertical positions
    
   - Speed slider
-    - Speed scale factor - (BottomY - TopY) / speed range = 536 / 18 = 29.8
-    - Step 1: get speed slider position from current speed - SpeedY = BottomY - round((current speed - 1) * 29.8)
-    - Step 2: set new slider position from new speed - SpeedY2 = speedY - round((newspeed - current speed) * 29.8)
+    - Speed scale factor - (BottomY - TopY) / speed range = 555 / 18 = 30.83
+    - Step 1: get speed slider position from current speed - SpeedY = BottomY - round((current speed - 1) * 30.83)
+    - Step 2: set new slider position from new speed - SpeedY2 = speedY - round((newspeed - current speed) * 30.83)
     - Important - by trial and error I found the speed scale factor had to be adjusted to 31.0 for my machine
     - Round current and target speeds to 1 decimal 
     - The swipe is then - Input swipe 1845 speedY 1845 speedY2
        
   - Incline slider
-    - Inclination scale factor - (BottomY - TopY) / incline range = 536 / 18 = 29.8
+    - Inclination scale factor - (BottomY - TopY) / incline range = 555 / 18 = 30.83
     - Important - by trial and error I found the incline scale factor had to be adjusted to 31.1 for my machine
