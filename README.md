@@ -27,29 +27,24 @@ ADB stands for Android Debug Bridge used by developers to connect their developm
   - 1845  - x pixel position of middle of speed slider
   - 75 - x pixel position of middle of incline slider
   - 812 - y pixel position of bottom of sliders - this is anchor for Y pixel calculations
-  - 29.78 - y distance between speed slider boxes
-  - 29.9 - y distance between incline slider boxes
-       
-- Get coordinates from screenshot in Photoshop
-  - Incline slider - bottom - 807,  top - 271
-  - Speed slider - bottom - 807, top- 271
-  - Y = 271 - 807 = 536 pixels
+  - Incline slider range - bottom - 812,  top - 271
+  - Speed slider range - bottom - 812, top- 271
+  - Y = 812 - 271 = 541 pixels
   - For speed range of 1.0 - 19.3 - use 19.0 as upper and ignore additional 0.3 = 18
-  - 536 pixels / 18 speed range = 29.78 pixels / 1 speed
+  - 541 pixels / 18 speed range = 30.05 pixels / 1 speed
   - For incline range of -3 - 15 = 18
-  - 536 pixels / 18 incline range = 29.78 pixels / 1 incline
+  - 536 pixels / 18 incline range = 30.05 pixels / 1 incline
        
 - Document equations to calculate speed and incline slider vertical positions
    
   - Speed slider
-    - Speed scale factor - (BottomY - TopY) / speed range = 536 / 18 = 29.78
-    - Step 1: get speed slider position from current speed - SpeedY = BottomY - round((current speed - 1) * 29.78)
-    - Step 2: set new slider position from new speed - SpeedY2 = speedY - round((newspeed - current speed) * 29.78)
+    - Speed scale factor - (BottomY - TopY) / speed range = 541 / 18 = 30.05
+    - Step 1: get speed slider position from current speed - SpeedY = BottomY - round((current speed - 1) * 30.05)
+    - Step 2: set new slider position from new speed - SpeedY2 = speedY - round((newspeed - current speed) * 30.05)
+    - Important - by trial and error I found the speed scale factor had to be adjusted to 31.0 for my machine
     - Round current and target speeds to 1 decimal 
     - The swipe is then - Input swipe 1845 speedY 1845 speedY2
        
   - Incline slider
-    - Inclination scale factor - (BottomY - TopY) / incline range = 536 / 18 = 29.78
-    - Had to correct to 29.9 - changes top to 269
-    - 538 / 18 = 29.8889 
-    - Equations are same for incline swipe except using current and new incline values, use 75 instead of 1845, and use 29.9 instead of 29.78
+    - Inclination scale factor - (BottomY - TopY) / incline range = 541 / 18 = 30.05
+    - Important - by trial and error I found the incline scale factor had to be adjusted to 31.1 for my machine
