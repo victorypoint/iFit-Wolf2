@@ -3,11 +3,11 @@ Experimental iFit Workout Data Capture and Control
 
 ### Tested on the NordicTrack Commercial 2950 iFit Embedded Wifi Treadmill (2021 model)
 
-Building on the initial iFit-Wolf repo and code at https://github.com/victorypoint/iFit-Wolf, this update includes the capability to control the treadmill speed and incline. I've only tested this on the NordicTrack C2950 treadmill (2021 model). Refer to the iFit-Wolf repo for technical details on how the treadmill records individual workouts to a local text log in a sequential streaming format. The NT C2950 treadmills embedded iFit console runs Android (currently v9 on my model). 
+Building on my initial iFit-Wolf repo and code at https://github.com/victorypoint/iFit-Wolf, this update includes the capability to control treadmill speed and incline. I've only tested this on the NordicTrack C2950 treadmill (2021 model). Refer to the iFit-Wolf repo for technical details on how the treadmill records individual workouts to a local text log in a sequential streaming format. The NT C2950 treadmills embedded iFit console runs Android (currently v9 on my model). 
 
 Building on the previous iFit-Wolf Windows VBscript code which displays the real-time speed and inclination values, this update includes functions to control the treadmill speed and incline by moving it's on-screen speed and incline slider controls up and down. The VBscript assumes an ADB connection has already been established with the treadmill, and proceeds to communicate speed and incline information over ADB.
 
-I've not included documentation here on how to configure the NT C2950 treadmill for ADB communication, but it involves accessing the machines “Privileged Mode”, turning on “Developer Options” in Android settings, and enabling “USB Debugging” mode. Accessing Privileged Mode is well documented on many websites, dependent on the treadmill model, and version of Android and iFit.
+Note: I've not included documentation here on how to configure the NT C2950 treadmill for ADB communication, but it involves accessing the machines “Privileged Mode”, turning on “Developer Options” in Android settings, and enabling “USB Debugging” mode. Accessing Privileged Mode is well documented on many websites, dependent on the treadmill model, and version of Android and iFit.
 
 Files included:
 - adb-connect.bat (batch script to initiate an ADB connection with the treadmill – change the IP to that of the treadmill)
